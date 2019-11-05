@@ -3,20 +3,41 @@ package src.View;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaView;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ViewConnexion {
 
+    private Menu model;
+    private Group root;
 
-    private GridPane miseEnPage() {
+
+/*    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Formulaire d'inscription"); //On affiche un titre à la fenêtre
+
+        GridPane gridPane = miseEnPageConnexion(); //on lie GridPane a notre objet miseEnPage qui permet de gerer un emplacement propre (en grille) sur la scene
+        ajoutInterfaceConnexion(gridPane); // On lie le formulaire au gridPane
+        Scene scene = new Scene(gridPane, 800, 600);// on crée la scene avec ca taille
+
+        primaryStage.setScene(scene); // on active la scene
+        primaryStage.show(); // on l'affiche sinon on vois rien
+    }*/
+
+    private GridPane miseEnPageConnexion(Group root) {
+        this.root = root;
+        this.model = model;
+
+        ajoutInterfaceConnexion();
+
 
         GridPane gridPane = new GridPane(); // on invoque gridPane
         gridPane.setAlignment(Pos.CENTER); // ca je l'ai trouvé aussi sur le net on ca permet de centrer tout nos élements sur la scene
@@ -30,7 +51,7 @@ public class ViewConnexion {
         return gridPane;
     }
 
-    private void addUIControls(GridPane gridPane) {
+    private void ajoutInterfaceConnexion(GridPane gridPane) {
 
         Label headerLabel = new Label("Connexion"); // ici on a la création du titre
         headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24)); // grace au net j'ai vue comment changer la typo
@@ -67,6 +88,9 @@ public class ViewConnexion {
         GridPane.setHalignment(submitButton, HPos.CENTER); // on le centre sur ca ligne
         GridPane.setMargin(submitButton, new Insets(20, 0,20,0)); // on met un petit espace au dessus et en dessous margin Top et bottom
 
+    }
+    void setVueCompleteOptions() {
+        root.getChildren().clear();
     }
 
 }

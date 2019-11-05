@@ -6,6 +6,7 @@ import javafx.event.EventHandler;  // ca c'est les imports
 import javafx.geometry.HPos;  // ca c'est les imports
 import javafx.geometry.Insets;  // ca c'est les imports
 import javafx.geometry.Pos; // ca c'est les imports
+import javafx.scene.Group;
 import javafx.scene.Scene;  // ca c'est les imports
 import javafx.scene.control.*;  // ca c'est les imports
 import javafx.scene.layout.*;  // ca c'est les imports
@@ -13,19 +14,19 @@ import javafx.scene.text.Font;  // ca c'est les imports
 import javafx.scene.text.FontWeight;  // ca c'est les imports
 import javafx.stage.Stage;  // ca c'est les imports
 
-public class ViewFormulaire extends Application {
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Formulaire d'inscription"); //On affiche un titre à la fenêtre
+public class ViewFormulaire {
 
-        GridPane gridPane = miseEnPage(); //on lie GridPane a notre objet miseEnPage qui permet de gerer un emplacement propre (en grille) sur la scene
-        addUIControls(gridPane); // On lie le formulaire au gridPane
-        Scene scene = new Scene(gridPane, 800, 600);// on crée la scene avec ca taille
+    private Menu model;
+    private Group root;
 
-        primaryStage.setScene(scene); // on active la scene
-        primaryStage.show(); // on l'affiche sinon on vois rien
+    public class ViewMenuInscription(Menu model, Group root) {
+        this.root = root;
+        this.model = model;
+        miseEnPage();
+        ajoutInterfaceInscription();
     }
+
 
 
     private GridPane miseEnPage() {
@@ -37,12 +38,10 @@ public class ViewFormulaire extends Application {
         gridPane.setHgap(10);
         gridPane.setVgap(10);
 
-
-
         return gridPane;
     }
 
-    private void addUIControls(GridPane gridPane) {
+    private void ajoutInterfaceInscription(GridPane gridPane) {
 
         Label headerLabel = new Label("Formulaire d'inscription"); // ici on a la création du titre
         headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24)); // grace au net j'ai vue comment changer la typo
@@ -131,13 +130,16 @@ public class ViewFormulaire extends Application {
         GridPane.setMargin(submitButton, new Insets(20, 0,20,0)); // on met un petit espace au dessus et en dessous margin Top et bottom
 
 
-/*        submitButton.setOnAction(new EventHandler<ActionEvent>() {  // ca va etre l'action du btn
-            @Override
-            public void handle(ActionEvent event) {
-                if (ActionEvent.getSource().equals(launcher.getMp().getOptions())) {
-                    launcher.setVueCompleteOptions();
-            }
-        });*/
+    }
+    void setEvents(Controller.ControllerMenu mc) {
+        Button.setOnMouseClicked(mc);
+
+    }
+    public Button getOptions(){
+        return Button;
     }
 
 }
+
+
+
