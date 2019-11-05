@@ -38,14 +38,12 @@ public class ViewConnexion {
 
         ajoutInterfaceConnexion();
 
-
         GridPane gridPane = new GridPane(); // on invoque gridPane
         gridPane.setAlignment(Pos.CENTER); // ca je l'ai trouvé aussi sur le net on ca permet de centrer tout nos élements sur la scene
 
         gridPane.setPadding(new Insets(40, 40, 40, 40));// la on fait un padding pour gerer le contour a l'interieur de la scene
         gridPane.setHgap(10);
         gridPane.setVgap(10);
-
 
 
         return gridPane;
@@ -61,13 +59,14 @@ public class ViewConnexion {
 
 
 
-
         Label identifiantLabel = new Label("Identifiant : "); // on instancie le label avec sont "TEXT" le text a gauche du champ
         gridPane.add(identifiantLabel, 0,1); // on le le met en place sur la grille
 
         TextField identifiantField = new TextField(); // on instancie le champ
         identifiantField.setPrefHeight(40); // la taille
         gridPane.add(identifiantField, 1,1); // on le le met en place sur la grille
+
+
 
 
         Label pwdLabel = new Label("Mot de passe : ");
@@ -80,7 +79,6 @@ public class ViewConnexion {
 
 
 
-
         Button submitButton = new Button("Connexion"); // on instancie le BTN avec son TEXT
         submitButton.setPrefHeight(40); // La taille hauteur
         submitButton.setPrefWidth(100); // la taille largeur
@@ -89,6 +87,7 @@ public class ViewConnexion {
         GridPane.setMargin(submitButton, new Insets(20, 0,20,0)); // on met un petit espace au dessus et en dessous margin Top et bottom
 
     }
+
     void setVueCompleteOptions() {
         root.getChildren().clear();
     }

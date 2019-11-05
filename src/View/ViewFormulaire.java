@@ -22,13 +22,9 @@ public class ViewFormulaire {
         this.model = model;
         miseEnPage();
 
-        btnValider = initButton(GridPane gridPane);
-
+        btnValider = initButton();
 
     }
-
-
-
 
     private GridPane miseEnPage() {
 
@@ -135,15 +131,14 @@ public class ViewFormulaire {
         return submitButton;
     }
 
-
-
-    void setEvents(Controller.ControllerMenu mc) {
+/*    void setEvents(Controller.ControllerMenu mc) {
         initButton(GridPane gridPane).setOnMouseClicked(mc);
 
     }
+
     public Button getOptions(){
         return Button;
-    }
+    }*/
 
 }
 
