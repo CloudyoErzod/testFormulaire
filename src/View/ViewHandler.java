@@ -6,7 +6,6 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import src.Controler.ControllerMenu;
 import src.Model.Menu;
 import src.view.ViewFormulaire;
 

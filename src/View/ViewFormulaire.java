@@ -1,31 +1,32 @@
 package src.view;
 
-import javafx.application.Application;  // ca c'est les imports
-import javafx.event.ActionEvent;  // ca c'est les imports
-import javafx.event.EventHandler;  // ca c'est les imports
 import javafx.geometry.HPos;  // ca c'est les imports
 import javafx.geometry.Insets;  // ca c'est les imports
 import javafx.geometry.Pos; // ca c'est les imports
-import javafx.scene.Group;
-import javafx.scene.Scene;  // ca c'est les imports
+import javafx.scene.Group;  // ca c'est les imports
 import javafx.scene.control.*;  // ca c'est les imports
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;  // ca c'est les imports
 import javafx.scene.text.Font;  // ca c'est les imports
 import javafx.scene.text.FontWeight;  // ca c'est les imports
-import javafx.stage.Stage;  // ca c'est les imports
 
 
 public class ViewFormulaire {
 
     private Menu model;
     private Group root;
+    private Button btnValider;
 
-    public class ViewMenuInscription(Menu model, Group root) {
+    ViewFormulaire(Menu model, Group root) {
         this.root = root;
         this.model = model;
         miseEnPage();
-        ajoutInterfaceInscription();
+
+        btnValider = initButton(GridPane gridPane);
+
+
     }
+
 
 
 
@@ -121,7 +122,9 @@ public class ViewFormulaire {
         gridPane.add(emailField, 1, 8);
 
 
+    }
 
+    private Button initButton(GridPane gridPane) {
         Button submitButton = new Button("Valider"); // on instancie le BTN avec son TEXT
         submitButton.setPrefHeight(40); // La taille hauteur
         submitButton.setPrefWidth(100); // la taille largeur
@@ -129,10 +132,13 @@ public class ViewFormulaire {
         GridPane.setHalignment(submitButton, HPos.CENTER); // on le centre sur ca ligne
         GridPane.setMargin(submitButton, new Insets(20, 0,20,0)); // on met un petit espace au dessus et en dessous margin Top et bottom
 
-
+        return submitButton;
     }
+
+
+
     void setEvents(Controller.ControllerMenu mc) {
-        Button.setOnMouseClicked(mc);
+        initButton(GridPane gridPane).setOnMouseClicked(mc);
 
     }
     public Button getOptions(){
